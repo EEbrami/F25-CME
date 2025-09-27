@@ -26,8 +26,16 @@ auto/
 *.bcf
 *.run.xml
 
-# MATLAB files
+# MATLAB temporary and compiled files
 *.asv
+*.bak
+*.log
+*.mex*
+
+# Do not track results by default
+results/
+
+# MATLAB files
 *.m~
 *.mat
 
