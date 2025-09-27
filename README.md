@@ -1,22 +1,33 @@
-# Computational Methods for Economists (Econ-81360)
-**Fall 2025**
+# F25-CME: Computational Methods for Economists
+## The Graduate Center, CUNY - Fall 2025
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository contains course materials for **Computational Methods for Economists** (Econ-81360), Fall 2025. The course focuses on practical computational techniques and programming skills essential for modern economic research and analysis.
+This repository contains all coursework for Econ-81360. The course focuses on practical computational techniques and programming skills essential for modern economic research and analysis.
+
+### How to Run an Assignment
+1. Navigate to the specific assignment's directory (e.g., `cd homeworks/hw1/`).
+2. Open MATLAB and run the main script (e.g., `main_problem1_approximation.m`).
+3. All outputs are saved in the `results/` subfolder.
 
 ## 📁 Repository Structure
 
 ```
 F25-CME/
 ├── syllabus/           # Course syllabus and schedule
-├── homework/           # Assignment materials
-│   ├── HW1/           # Homework 1
-│   ├── HW2/           # Homework 2
-│   ├── ...            # Additional homework assignments
-│   └── HW10/          # Homework 10
+├── homeworks/          # New assignment structure
+│   ├── hw1/           # Homework 1: Function Approximation
+│   │   ├── main_problem1_approximation.m
+│   │   ├── main_problem2_growth_model.m
+│   │   ├── functions/
+│   │   ├── documentation/
+│   │   └── results/
+│   ├── hw2/           # Placeholder for next assignment
+│   └── ...
+├── homework/           # Legacy assignment materials
 ├── project/           # Mid-term project materials
 ├── final_project/     # Final project materials
+├── projects/          # Future projects
 ├── code/              # Code examples and templates
 │   ├── MATLAB/        # MATLAB scripts and functions
 │   ├── Python/        # Python scripts and notebooks

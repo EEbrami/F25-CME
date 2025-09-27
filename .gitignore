@@ -29,7 +29,6 @@ auto/
 # MATLAB files
 *.asv
 *.m~
-*.mat
 
 # Python files
 __pycache__/
