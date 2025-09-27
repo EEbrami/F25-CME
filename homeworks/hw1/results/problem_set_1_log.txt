@@ -1,12 +1,12 @@
 ============================================================
-RUNNING PROBLEM SET 1: ECON-81360
+RUNNING ECON-81360 - PROBLEM SET 1
 Author: Ebrahim Ebrami
-Execution started at: 27-Sep-2025 16:57:31
+Execution started at: 27-Sep-2025 18:02:56
 ============================================================
 
 --- Starting Problem 1: Function Approximation ---
 
-=== Problem Set 1: Function Approximation Benchmarking ===
+=== Problem 1: Function Approximation Benchmarking ===
 
 Step 1 Complete: True Franke function plotted and saved.
 
@@ -41,14 +41,14 @@ Scattered Interpolant       1.6727e-01
 All figures saved to results/figures_problem1/
 Problem 1 complete!
 
---- Problem 1 Finished. Elapsed time: 10.25 seconds ---
+--- Problem 1 Finished. Elapsed time: 11.93 seconds ---
 
 
 --- Starting Problem 2: Stochastic Growth Model ---
 
 CompEcon Toolbox added to path.
 
-=== Problem Set 2: Solving the Stochastic Growth Model ===
+=== Problem 2: Solving the Stochastic Growth Model ===
 
 Step 1: Model parameters defined and steady state calibrated.
          Normalizing constant A = 0.0975 for k_ss = 1.
@@ -78,7 +78,7 @@ Conclusion: Spline approximation performed best.
 
 Problem 2 complete!
 
---- Problem 2 Finished. Elapsed time: 7.86 seconds ---
+--- Problem 2 Finished. Elapsed time: 6.99 seconds ---
 
 ============================================================
 EXECUTION COMPLETE
