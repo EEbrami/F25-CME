@@ -9,7 +9,7 @@
 clear; clc; close all;
 
 % Add functions directory to path
-addpath('functions');
+addpath('p1_functions');
 
 % Create results directory
 if ~exist('results/figures_problem1', 'dir')
@@ -37,7 +37,7 @@ figure('Name', 'Benchmark: Franke Function', 'Position', [100, 100, 800, 600]);
 surf(x_fine, y_fine, z_true);
 title('True Franke Function');
 xlabel('x'); ylabel('y'); zlabel('z');
-colormap('viridis');
+colormap(parula);
 view(145, 30);
 set(gca, 'FontSize', 12);
 grid on;
@@ -56,7 +56,7 @@ m = N + 1;
 % 2.1. Grid Generation (Chebyshev Nodes)
 % Using Chebyshev extrema (Gauss-Lobatto nodes)
 k = (0:N)';
-nodes_1d_cheb = 0.5 * (1 - cos(k * pi / N)); % Mapped to [0,1]
+nodes_1d_cheb = 0.5 * (1 + cos(k * pi / N)); % Mapped to [0,1]
 [x_nodes_cheb, y_nodes_cheb] = ndgrid(nodes_1d_cheb, nodes_1d_cheb);
 
 % 2.2. Evaluate function on the grid
@@ -77,23 +77,30 @@ saveas(gcf, 'results/figures_problem1/02_chebyshev_nodes.png');
 fprintf('Generated %d Chebyshev nodes and plotted them.\n', m*m);
 
 % 2.3. Coefficient Calculation
-% This implements Eq. (13.44) from Miranda & Fackler
-% First, construct the T_Km matrix (Chebyshev basis functions evaluated at nodes)
-z_domain = cos(k * pi / N); % Nodes on canonical [-1,1] domain
-T_Km = cos((0:N) .* acos(z_domain));
-
-% Construct the scaling matrix D
-c = ones(m, 1); c([1, m]) = 2;
-D = diag(2 ./ (c * m));
-D(1,1) = D(1,1)/2;
-
-% Calculate coefficient matrix Gamma
-F = z_nodes_cheb;
-Gamma_cheb = D * T_Km' * F * T_Km * D;
 fprintf('Calculated Chebyshev coefficients.\n');
+
+% Basis matrix T_ij = T_i(node_j)
+% Note: The z_domain from your code is the same as nodes_1d in the diagnostic
+z_domain = cos(k * pi / N); % Defines the nodes on the canonical [-1, 1] domain
+T_basis = cos( (0:N)' * acos(z_domain') );
+
+% Scale the function values at the nodes for the transform
+F_scaled = z_nodes_cheb;
+F_scaled([1, m], :) = F_scaled([1, m], :) * 0.5;
+F_scaled(:, [1, m]) = F_scaled(:, [1, m]) * 0.5;
+
+% Calculate coefficients via the correct formula
+Gamma_cheb = (4 / (N * N)) * (T_basis * F_scaled * T_basis');
+% CRITICAL FIX: Scale the boundary coefficients for the reconstruction formula
+Gamma_cheb([1, m], :) = Gamma_cheb([1, m], :) * 0.5;
+Gamma_cheb(:, [1, m]) = Gamma_cheb(:, [1, m]) * 0.5;
 
 % 2.4. Evaluation/Interpolation
 % Create an evaluation function to compute the approximation on the fine grid
+% OLD
+% z_approx_cheb = cheb_eval_2d(Gamma_cheb, x_coarse, y_coarse);
+
+% NEW
 z_approx_cheb = cheb_eval_2d(Gamma_cheb, x_fine, y_fine);
 
 % 2.5. Accuracy and Visualization
@@ -151,7 +158,7 @@ fprintf('Generated %d uniform nodes and plotted them.\n', m_poly^2);
 % 3.3. Coefficient Calculation
 % Construct the Vandermonde-like matrix X
 X_mat = zeros(m_poly^2, m_poly^2);
-y_vec = z_nodes_poly(:);
+y_vec = reshape(z_nodes_poly', [], 1); % Corrected for row-major order
 idx = 1;
 for i = 1:m_poly
     for j = 1:m_poly
