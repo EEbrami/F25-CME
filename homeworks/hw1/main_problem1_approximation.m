@@ -1,5 +1,5 @@
 %% ========================================================================
-% PS1, ECON-81360: Function Approximation
+% ECON-81360 - Problem 1: Function Approximation
 % Author: Ebrahim Ebrami
 % Date: Fall 2025
 % This script solves Problem 1 of the problem set 1: benchmarking 2D function
@@ -16,7 +16,7 @@ if ~exist('results/figures_problem1', 'dir')
     mkdir('results/figures_problem1');
 end
 
-fprintf('=== Problem Set 1: Function Approximation Benchmarking ===\n\n');
+fprintf('=== Problem 1: Function Approximation Benchmarking ===\n\n');
 
 %% 1. Setup: Define Franke Function and Benchmark Surface
 

@@ -1,10 +1,10 @@
 %% ========================================================================
-% Master Script for ECON-81360 Problem Set 1
+% Master Script for ECON-81360 - Problem Set 1
 % Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
-% This script runs all parts of the problem set sequentially and saves the
-% Command Window output to a log file using the 'diary' command.
+% This script runs all parts of the problem set 1 sequentially and saves
+% the Command Window output to a log file using the 'diary' command.
 % =========================================================================
 
 clear; clc; close all;
@@ -26,7 +26,7 @@ end
 diary(log_filepath);
 
 fprintf('============================================================\n');
-fprintf('RUNNING PROBLEM SET 1: ECON-81360\n');
+fprintf('RUNNING ECON-81360 - PROBLEM SET 1\n');
 fprintf('Author: Ebrahim Ebrami\n');
 fprintf('Execution started at: %s\n', string(datetime('now')));
 fprintf('============================================================\n');

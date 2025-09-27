@@ -1,5 +1,5 @@
 %% ========================================================================
-% PS2, ECON-81360: Solving the Stochastic Growth Model
+% ECON-81360 - Problem 2: Solving the Stochastic Growth Model
 % Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
@@ -22,7 +22,7 @@ if ~exist('results/figures_problem2', 'dir')
     mkdir('results/figures_problem2');
 end
 
-fprintf('=== Problem Set 2: Solving the Stochastic Growth Model ===\n\n');
+fprintf('=== Problem 2: Solving the Stochastic Growth Model ===\n\n');
 
 %% 1. Model Setup and Steady State
 params.alpha   = 0.36;      % Capital share
