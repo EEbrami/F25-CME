@@ -1,0 +1,85 @@
+============================================================
+RUNNING PROBLEM SET 1: ECON-81360
+Author: Ebrahim Ebrami
+Execution started at: 27-Sep-2025 16:57:31
+============================================================
+
+--- Starting Problem 1: Function Approximation ---
+
+=== Problem Set 1: Function Approximation Benchmarking ===
+
+Step 1 Complete: True Franke function plotted and saved.
+
+--- Running Problem 1a: Chebyshev Approximation ---
+Generated 256 Chebyshev nodes and plotted them.
+Calculated Chebyshev coefficients.
+Chebyshev (N=15): Max absolute error = 3.8670e-03, Mean absolute error = 4.4334e-04
+Plotted Chebyshev approximation and error.
+
+--- Running Problem 1b: Ordinary Polynomial Approximation ---
+Generated 81 uniform nodes and plotted them.
+Condition number of Vandermonde matrix is 4.04e+12. High values indicate instability.
+Calculated Ordinary Polynomial coefficients.
+Ordinary Poly (N=8): Max absolute error = 1.7380e-01, Mean absolute error = 1.1565e-02
+Plotted Ordinary Polynomial approximation and error.
+
+--- Running Problem 1c: Toolbox Implementations ---
+Cubic Spline (grid 9x9): Max absolute error = 5.4613e-02
+Cubic spline approximation complete.
+Scattered Interpolant (81 points): Max absolute error = 1.6727e-01
+Scattered data interpolation complete.
+
+=== SUMMARY RESULTS ===
+Method Comparison (Maximum Absolute Error):
+Method                       Max Error
+------                       ---------
+Chebyshev (N=15)            3.8670e-03
+Ordinary Poly (N=8)         1.7380e-01
+Cubic Spline                5.4613e-02
+Scattered Interpolant       1.6727e-01
+
+All figures saved to results/figures_problem1/
+Problem 1 complete!
+
+--- Problem 1 Finished. Elapsed time: 10.25 seconds ---
+
+
+--- Starting Problem 2: Stochastic Growth Model ---
+
+CompEcon Toolbox added to path.
+
+=== Problem Set 2: Solving the Stochastic Growth Model ===
+
+Step 1: Model parameters defined and steady state calibrated.
+         Normalizing constant A = 0.0975 for k_ss = 1.
+
+--- Solving the model using different approximation methods ---
+
+Running solver for Chebyshev polynomials (Degree 5)...
+Solver converged in 1000 iterations.
+Log10 Max Euler Error: -1.8653
+Log10 Mean Euler Error: -2.7060
+Generating plots for the Chebyshev method...
+
+Running solver for Cubic Splines...
+Solver converged in 1000 iterations.
+Log10 Max Euler Error: -2.0246
+Log10 Mean Euler Error: -2.7879
+Generating plots for the Spline method...
+
+
+--- SUMMARY OF RESULTS ---
+Approximation Method | Log10 Max Error | Log10 Mean Error
+------------------------------------------------------------
+Chebyshev            | -1.8653         | -2.7060        
+Cubic Spline         | -2.0246         | -2.7879        
+
+Conclusion: Spline approximation performed best.
+
+Problem 2 complete!
+
+--- Problem 2 Finished. Elapsed time: 7.86 seconds ---
+
+============================================================
+EXECUTION COMPLETE
+============================================================
