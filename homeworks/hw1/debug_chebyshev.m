@@ -1,6 +1,6 @@
 %% ========================================================================
 % Diagnostic Script for 2D Chebyshev Approximation
-% Author: Ebrahim & Gemini
+% Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
 % This script performs a step-by-step implementation of the 2D Chebyshev

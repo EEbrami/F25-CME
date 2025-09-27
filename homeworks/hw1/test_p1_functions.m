@@ -1,6 +1,15 @@
 %% ========================================================================
-% Test Script for 2D Approximation Helper Functions (FINAL CORRECTED)
+% Test Script for Problem 1 Helper Functions
+% Author: Ebrahim Ebrami
+% Date: Fall 2025
+%
+% This script tests the helper functions for 2D approximation, including
+% Chebyshev and polynomial evaluations. It verifies the accuracy of the
+% approximations against a known test function:
+%   - cheb_eval_2d.m
+%   - poly_eval_2d.m
 % =========================================================================
+
 clear; clc; close all;
 addpath('functions');
 fprintf('=== Testing Helper Functions for 2D Approximation ===\n\n');

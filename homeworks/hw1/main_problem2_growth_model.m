@@ -1,6 +1,6 @@
 %% ========================================================================
-% PS2, ECON-81360: Solving the Stochastic Growth Model (with Plots)
-% Author: Ebrahim
+% PS2, ECON-81360: Solving the Stochastic Growth Model
+% Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
 % This script solves the standard neoclassical stochastic growth model using

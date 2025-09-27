@@ -1,6 +1,6 @@
 %% ========================================================================
 % Test Script for Problem 2 Helper Functions
-% Author: Ebrahim
+% Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
 % This script verifies the correctness of the key approximation functions

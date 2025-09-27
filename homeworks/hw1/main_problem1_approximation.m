@@ -1,8 +1,8 @@
 %% ========================================================================
 % PS1, ECON-81360: Function Approximation
-% Author: Problem Set 1 Solution
+% Author: Ebrahim Ebrami
 % Date: Fall 2025
-% This script solves Problem 1 of the problem set: benchmarking 2D function
+% This script solves Problem 1 of the problem set 1: benchmarking 2D function
 % approximation methods using the Franke function.
 % =========================================================================
 

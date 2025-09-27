@@ -1,6 +1,6 @@
 %% ========================================================================
-% Master Script for ECON-81360 Problem Set (Final Corrected)
-% Author: Ebrahim
+% Master Script for ECON-81360 Problem Set 1
+% Author: Ebrahim Ebrami
 % Date: Fall 2025
 %
 % This script runs all parts of the problem set sequentially and saves the
