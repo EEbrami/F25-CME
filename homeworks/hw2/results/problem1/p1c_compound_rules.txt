@@ -1,0 +1,26 @@
+--- HW2 Problem 1(c) Results: Trapezoid and Simpson Convergence Study ---
+Integral: I = integral_0^2pi (exp(-x) * sin(10x)) dx
+
+--- Study Parameters ---
+Integration Interval: [0.0, 6.283]
+Exact Value (I_exact): 0.098825005670128
+Required Relative Tolerance: 1.00e-03
+
+--- Final Convergence Points ---
+Trapezoid Rule converged at M (Subperiods): 1024
+Simpson's Rule converged at M (Subperiods): 128
+
+--- Convergence Profile (M vs. Relative Error) ---
+This table documents the M-h relationship for order of convergence analysis.
+M (Subperiods) | h (Step Size) | Trapz Rel. Error | Simpson Rel. Error
+----------------------------------------------------------------------------
+2              |   3.14159e+00 |        1.000e+00 |        1.000e+00
+4              |   1.57080e+00 |        1.000e+00 |        1.000e+00
+8              |   7.85398e-01 |        1.994e+00 |        2.992e+00
+16             |   3.92699e-01 |        1.786e+00 |        3.045e+00
+32             |   1.96350e-01 |        3.466e-01 |        1.330e-01
+64             |   9.81748e-02 |        8.241e-02 |        5.647e-03
+128            |   4.90874e-02 |        2.036e-02 |        3.246e-04
+256            |   2.45437e-02 |        5.075e-03 |    < TOLERANCE   
+512            |   1.22718e-02 |        1.268e-03 |    < TOLERANCE   
+1024           |   6.13592e-03 |        3.169e-04 |    < TOLERANCE   

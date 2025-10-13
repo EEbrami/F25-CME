@@ -1,0 +1,18 @@
+--- HW2 Problem 1(d) Results: Cross-Method Comparison ---
+Integral: I = integral_0^2pi (exp(-x) * sin(10x)) dx
+
+Baseline Exact Value (P1a):  0.098825005670128
+
+Comparison Metric: Relative Error = |I_exact - I_approx| / |I_exact|
+
+Method                      | Approximation Value    | Relative Error (%) | Parameters/Constraints
+----------------------------|------------------------|--------------------|----------------------------------------
+Exact Solution (P1a)        |      0.098825005670128 |        0.00000e+00 | N/A
+GC Quadrature (D=5 poly.)   |     -0.941750911422353 |        1.05295e+03 | D=5, N=3. No direct MATLAB counterpart.
+GC Quadrature (Optimized)   |      0.098794947141749 |        3.04159e-02 | D=41, N=21 (Tol=1e-3). No direct MATLAB counterpart.
+Trapz Rule (Custom)         |      0.098793687726748 |        3.16903e-02 | M=1024 (Tol=1e-3). Direct MATLAB counterpart exists.
+Trapz (Built-in)            |      0.098793687726748 |        3.16903e-02 | M=1024 (Same Nodes as Custom). Verifies Custom Code.
+Simpson's Rule (Custom)     |      0.098857085886173 |        3.24616e-02 | M=128 (Tol=1e-3). Compared to adaptive solvers.
+Integral (AbsTol=1e-9)      |      0.098825005670128 |        2.80856e-14 | Adaptive Gauss-Kronrod Method. Modern MATLAB Standard.
+Quad (Default)              |      0.098690591266489 |        1.36013e-01 | Adaptive Simpson's Rule. Older Method (Tol=1e-6 Default).
+----------------------------|------------------------|--------------------|----------------------------------------

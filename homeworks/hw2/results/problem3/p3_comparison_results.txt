@@ -1,0 +1,106 @@
+--- HW2 Problem 3 Comparison Results ---
+Model: Stochastic Neoclassical Growth (Method 7, D=2)
+Accuracy Check: 10-Node GHQ Residuals on T=10200 Path
+
+========================================
+Method: GH Quadrature (Qn=5)
+----------------------------------------
+Convergence Status: Maximum iterations reached (slow convergence).
+Iterations: 5000
+Final Mean Policy Value (k' avg): NaN
+Policy Coefficients (K_coef):
+  V(1):                  NaN
+  V(2):                  NaN
+  V(3):                  NaN
+  V(4):                  NaN
+  V(5):                  NaN
+  V(6):                  NaN
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: N/A
+Log10 Mean Euler Residual: N/A
+
+========================================
+Method: MATLAB quad (Unstable)
+----------------------------------------
+Convergence Status: Integration failed repeatedly due to near-singular integrand (Adaptive Integrator Failure).
+Iterations: 5000
+Final Mean Policy Value (k' avg): NaN
+Policy Coefficients (K_coef):
+  V(1):                  NaN
+  V(2):                  NaN
+  V(3):                  NaN
+  V(4):                  NaN
+  V(5):                  NaN
+  V(6):                  NaN
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: N/A
+Log10 Mean Euler Residual: N/A
+
+========================================
+Method: MATLAB integral (Robust Adaptive)
+----------------------------------------
+Convergence Status: Converged to wrong fixed point (k' approx 0).
+Iterations: 111
+Final Mean Policy Value (k' avg): 0.0000000000
+Policy Coefficients (K_coef):
+  V(1):    1.000000000000000
+  V(2):    0.000000000000000
+  V(3):    0.000000000000000
+  V(4):    0.000000000000000
+  V(5):    0.000000000000000
+  V(6):    0.000000000000000
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: N/A
+Log10 Mean Euler Residual: N/A
+
+========================================
+Method: Monte Carlo (T=10)
+----------------------------------------
+Convergence Status: Maximum iterations reached (typical for MC noise).
+Iterations: 5000
+Final Mean Policy Value (k' avg): 0.9851752989
+Policy Coefficients (K_coef):
+  V(1):   -0.017524010900874
+  V(2):    0.040475819329640
+  V(3):    0.941161209399836
+  V(4):    0.002775534343101
+  V(5):    0.024309343607742
+  V(6):   -0.006021692839542
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: N/A
+Log10 Mean Euler Residual: N/A
+
+========================================
+Method: Monomial Rule 1 (2 nodes)
+----------------------------------------
+Convergence Status: Converged to Tolerance (Deterministic fixed-node).
+Iterations: 936
+Final Mean Policy Value (k' avg): 0.9852991743
+Policy Coefficients (K_coef):
+  V(1):   -0.012836094236811
+  V(2):    0.037801041167871
+  V(3):    0.935050338416759
+  V(4):    0.004084164002242
+  V(5):    0.024089972574499
+  V(6):   -0.002888092629221
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: 0.00000000
+Log10 Mean Euler Residual: 0.00000000
+
+========================================
+Method: Monomial Rule 2 (3 nodes)
+----------------------------------------
+Convergence Status: Converged to Tolerance (Deterministic fixed-node).
+Iterations: 936
+Final Mean Policy Value (k' avg): 0.9852991746
+Policy Coefficients (K_coef):
+  V(1):   -0.012836094089451
+  V(2):    0.037801041001676
+  V(3):    0.935050338487248
+  V(4):    0.004084164068250
+  V(5):    0.024089972668455
+  V(6):   -0.002888092603864
+--- Stochastic Accuracy Assessment ---
+Log10 Max Euler Residual: 0.00000000
+Log10 Mean Euler Residual: 0.00000000
+

@@ -1,0 +1,8 @@
+--- HW2 Problem 1(a) Results: Integration by Parts ---
+Integral: I = integral_0^2pi (exp(-x) * sin(10x)) dx
+
+1. Exact Symbolic Expression (I_sym_expression):
+10/101 - (10*exp(-2*pi))/101
+
+2. Exact Numerical Value (I_exact, double precision):
+0.098825005670128

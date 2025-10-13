@@ -1,0 +1,16 @@
+--- HW2 Problem 1(b) Results: Gauss-Chebyshev Quadrature ---
+Method Used: Gauss-Chebyshev Quadrature
+Method Type: Type 1 (Adapted for Unweighted Function)
+Integral: I = integral_0^2pi (exp(-x) * sin(10x)) dx
+
+--- Parameters Used ---
+Integration Interval: [0.0, 6.283]
+Source Weight Function: w(x) = (1-x^2)^(-1/2) (Source Weight)
+Integral Form Solved: Unweighted Integral on Arbitrary Domain [a, b]
+Required Polynomial Order (D): 40
+Number of Quadrature Nodes (N): 2.050000e+01
+Theoretical Degree of Exactness: 40 (2N-1)
+
+--- Results ---
+1. Numerical Approximation (I_gc):
+0.099773501280915
