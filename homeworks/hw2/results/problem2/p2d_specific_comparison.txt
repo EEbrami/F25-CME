@@ -1,0 +1,13 @@
+--- HW2 Problem 2(d) Results: Accuracy Comparison at Mandated Parameters ---
+Comparison Baseline (dblquad Value):      0.019863753912900
+
+NOTE: Relative Error is calculated against the dblquad result, as mandated.
+
+Method            | I_approximate Value    | Nodes/Samples | Relative Error (%)
+------------------|------------------------|---------------|--------------------
+dblquad (Base)    |      0.019863753912900 |     N/A       |           NaN
+GCQ (D=5)         |      0.464119980672993 |             9 |  2.236517e+03
+Trapezoid (M=4)   |      0.754202509281518 |            16 |  3.696878e+03
+Monte(T=10k)      |      0.022418424500859 |         10000 |  1.286097e+01
+integral2         |      0.019863765749402 |           NaN |  5.958845e-05
+------------------|------------------------|---------------|--------------------

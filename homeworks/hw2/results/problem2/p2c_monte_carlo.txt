@@ -1,0 +1,20 @@
+--- HW2 Problem 2(c) Results: Monte Carlo Integration ---
+Method: Crude Monte Carlo (2D)
+Domain Area: 1.0
+Samples per Run (T): 10000
+
+--- Observational Experiment ---
+The integral was run 5 times with T=10000 random points to facilitate observation.
+Run Index | Monte Carlo Approximation (I_MC)
+----------|-----------------------------------
+1         |            0.022388089963444
+2         |            0.014922320621731
+3         |            0.030156286067159
+4         |            0.020273834573263
+5         |            0.024351591278700
+----------|-----------------------------------
+Mean Estimate (I_MC_final):            0.022418424500859
+
+--- Observation Note for P2d Analysis ---
+The primary observation data point is the variation in results across runs (variance), which will be analyzed in P2d.
+--------------------------------------------------------------------------------------------------
