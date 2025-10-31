@@ -2,29 +2,39 @@
 Parameters: Tolerance = 1.000000e-08, Max Iterations = 5000
 
 System 1 (A1):
-  Gauss-Jacobi: 26 iterations
-  Gauss-Seidel: 15 iterations
+  Gauss-Jacobi: 40 iterations
+  Gauss-Seidel: 24 iterations
 
 System 2 (A2):
-  Gauss-Jacobi: 5 iterations (Warning if 5000)
-  Gauss-Seidel: 5000 iterations (Warning if 5000)
+  Gauss-Jacobi: 224 iterations
+  Gauss-Seidel: 124 iterations
+
+System 3 (A3):
+  Gauss-Jacobi: 5000 iterations (Note: 5000 indicates non-convergence)
+  Gauss-Seidel: 5000 iterations (Note: 5000 indicates non-convergence)
 
 
 --- Analysis of Convergence ("Why is it so different?") ---
 
-The convergence behavior is dictated by the properties of the matrices.
-A sufficient (but not necessary) condition for convergence is that the matrix is strictly diagonally dominant.
+A sufficient condition for the convergence of Gauss-Jacobi and Gauss-Seidel is that the matrix is strictly diagonally dominant.
 
-Matrix A1:
-  Row 1: |4| > |-1| + |-1| + |0| (4 > 2) -> TRUE
-  Row 2: |4| > |-1| + |0| + |-1| (4 > 2) -> TRUE
-  Row 3: |4| > |-1| + |0| + |-1| (4 > 2) -> TRUE
-  Row 4: |4| > |0| + |-1| + |-1| (4 > 2) -> TRUE
-  Result: A1 IS strictly diagonally dominant. Convergence is guaranteed.
+Matrix A1: IS strictly diagonally dominant. Convergence is guaranteed.
+  Row 1: |3| > |1| + |1| + |0| (3 > 2) -> TRUE
+  Row 2: |5| > |1| + |-1| + |2| (5 > 4) -> TRUE
+  Row 3: |3| > |1| + |0| + |1| (3 > 2) -> TRUE
+  Row 4: |4| > |0| + |1| + |1| (4 > 2) -> TRUE
 
-Matrix A2:
-  Row 1: |1| > |2| + |-2| + |0| (1 > 4) -> FALSE
-  Row 2: |1| > |1| + |1| + |0| (1 > 2) -> FALSE
-  Row 3: |1| > |2| + |2| + |0| (1 > 4) -> FALSE
-  Row 4: |1| > |1| + |1| + |1| (1 > 3) -> FALSE
-  Result: A2 IS NOT strictly diagonally dominant. Convergence is not guaranteed and, in this case, the methods fail to converge (indicated by hitting the max iteration limit).
+Matrix A2: IS strictly diagonally dominant. Convergence is guaranteed.
+  Row 1: |2.5| > |1| + |1| + |0| (2.5 > 2) -> TRUE
+  Row 2: |4.1| > |1| + |-1| + |2| (4.1 > 4) -> TRUE
+  Row 3: |2.1| > |1| + |0| + |1| (2.1 > 2) -> TRUE
+  Row 4: |2.1| > |0| + |1| + |1| (2.1 > 2) -> TRUE
+
+Matrix A3: IS NOT strictly diagonally dominant. Convergence is not guaranteed.
+  Row 1: |2| > |1| + |1| + |0| (2 > 2) -> FALSE
+  Row 2: |3.5| > |1| + |-1| + |2| (3.5 > 4) -> FALSE
+  Result: The methods fail to converge, as indicated by reaching the max iteration limit.
+
+--- Comparison of Methods ---
+For the converging matrices (A1 and A2), Gauss-Seidel requires fewer iterations than Gauss-Jacobi.
+This is the expected theoretical outcome, as Gauss-Seidel uses the most recently updated values within the same iteration, accelerating convergence.
