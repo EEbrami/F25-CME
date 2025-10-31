@@ -1,7 +1,7 @@
 --- Problem 1, Part 1: Direct Solver Benchmark ---
 Parameters: n = 2000, Iterations = 1000
 
-(a) Gaussian (A\b):    56.255165 seconds
-(b) LU Decomposition:   13.842214 seconds
-(c) Matrix Inverse:     0.416591 seconds
-(d) Cholesky (SPD):   10.481438 seconds
+(a) Gaussian (A\b):    31.606672 seconds
+(b) LU Decomposition:   4.704364 seconds
+(c) Matrix Inverse:     0.264013 seconds
+(d) Cholesky (SPD):   3.520208 seconds

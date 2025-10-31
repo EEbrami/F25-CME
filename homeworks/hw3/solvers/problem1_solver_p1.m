@@ -28,20 +28,20 @@ time_gauss = toc;
 
 % --- (b) LU Decomposition ---
 fprintf('  Benchmarking (b) LU Decomposition...\n');
-tic;
 [L, U, P] = lu(A); % Pre-compute factorization
+tic;
 for i = 1:iterations
     y_lu = L\(P*b);
     x_lu = U\y_lu;
 end
 time_lu = toc;
 
-% --- (c) Matrix Inverse (inv(A)) ---
-fprintf('  Benchmarking (c) Matrix Inverse...\n');
+% --- (c) Matrix Inverse (inv(A)) [Corrected Benchmark] ---
+fprintf('  Benchmarking (c) Matrix Inverse (SOLVE ONLY)...\n');
+A_inv = inv(A); % <--- O(n^3) setup OUTSIDE tic
 tic;
-A_inv = inv(A); % Pre-compute inverse
 for i = 1:iterations
-    x_inv = A_inv*b;
+    x_inv = A_inv*b; % <--- O(n^2) solve
 end
 time_inv = toc;
 
@@ -52,8 +52,9 @@ A_spd = A'*A;
 b_spd = randn(n, 1); % Create a new b for this system
 
 fprintf('  Benchmarking (d) Cholesky Decomposition...\n');
-tic;
+
 U_chol = chol(A_spd); % Pre-compute factorization
+tic;
 for i = 1:iterations
     y_chol = U_chol'\b_spd; 
     x_chol = U_chol\y_chol;
