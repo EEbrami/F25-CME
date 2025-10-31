@@ -25,8 +25,8 @@ All code and results are located within the `homeworks/hw3/` directory:
     * `problem2_solver.m`: Main script to run all stabilization experiments.
 * **`/methods/`**: Contains all custom-written or modified functions.
     * `gauss_jacobi.m` / `gauss_seidel.m`: Custom functions for Problem 1, Part 2.
-    * `run_gssa_experiment.m`: A modified, function-based version of the professor's `Main_GSSA_1.m` used for batch experiments.
-* **`/gssa_1_agent_capital/`**: Contains the original, unmodified code provided by the professor (e.g., `Main_GSSA_1.m`, `Num_Stab_Approx.m`).
+    * `run_gssa_experiment.m`: A modified, function-based version of Dr. Maliar's `Main_GSSA_1.m` used for batch experiments.
+* **`/gssa_1_agent_capital/`**: Contains the original, unmodified code provided by Dr. Maliar (e.g., `Main_GSSA_1.m`, `Num_Stab_Approx.m`).
 * **`/results/`**: Contains all text and figure outputs.
     * `/problem1/p1_part1_timing.txt`: The raw timing data for the direct solver benchmark.
     * `/problem2/p2_stabilization_results.txt`: The results table for the GSSA experiments.
@@ -37,7 +37,7 @@ All code and results are located within the `homeworks/hw3/` directory:
 
 ### Part 1: Direct Solver Benchmark
 
-The objective of this problem is to compare the time needed to solve the system $Ax=b$ 1,000 times. The benchmark script `solvers/problem1_solver_p1.m` was used, which correctly isolates the $O(n^2)$ "solve" step from the $O(n^3)$ "setup" (factorization/inversion) step for methods (b) and (c).
+The objective of this problem is to compare the time needed to solve the system $Ax=b$ 1,000 times. The benchmark script `solvers/problem1_solver_p1.m` was used, which correctly isolates the $O(n^2)$ "solve" step from the $O(n^3)$ "setup" (factorization/inversion) step for methods (b), (c), and (d).
 
 **Analysis of Results (`results/problem1/p1_part1_timing.txt`)**
 
@@ -46,14 +46,14 @@ The objective of this problem is to compare the time needed to solve the system 
 | (a) Gaussian (A\b) | 31.355 s | **Flawed Benchmark:** This times `A\b` *inside* the loop, re-computing the $O(n^3)$ factorization 1,000 times. |
 | (b) LU Decomposition | 5.246 s | **Correct Benchmark:** Times the 1,000 $O(n^2)$ *sequential* forward/backward substitutions. |
 | (c) Matrix Inverse | 0.174 s | **Correct Benchmark:** Times the 1,000 $O(n^2)$ *parallel* matrix-vector multiplications. |
-| (d) Cholesky (SPD) | 3.554 s | **Flawed Benchmark:** The `tic` is placed *before* the `chol(A_spd)` call, incorrectly including the $O(n^3)$ setup. |
+| (d) Cholesky (SPD) | 3.554 s | **Correct Benchmark:** Times the 1,000 $O(n^2)$ *sequential* forward/backward substitutions. |
 
 #### Critical Analysis: Why is the Matrix Inverse "Solve" Fastest?
 
 The empirical data is correct: the `inv(A)*b` solve step (0.17s) is over **30 times faster** than the `L\U\P*b` solve step (5.24s). This does not contradict the textbook; it reveals a crucial distinction between sequential and parallel operations.
 
 * **LU/Cholesky Solve (Sequential):** The solve step `x = U\(L\(P*b))` is a *substitution*. This operation is **inherently sequential**. To find `x(2)`, you must first know the value of `x(1)`. This operation cannot be effectively parallelized and is thus bottlenecked by single-core processor speed.
-* **Matrix Inverse Solve (Parallel):** The solve step `x = A_inv*b` is a *matrix-vector multiplication*. This is one of the most highly-optimized operations in computing (a Level 2 BLAS routine) and is **massively parallelizable**. MATLAB's underlying Math Kernel Library (MKL) executes this operation across all available CPU cores simultaneously.
+* **Matrix Inverse Solve (Parallel):** The solve step `x = A_inv*b` is a *matrix-vector multiplication*. This is one of the most highly-optimized operations in computing (a Level 2 BLAS routine) and is massively **parallelizable**. MATLAB's underlying **Math Kernel Library (MKL)** executes this operation across all available CPU cores simultaneously.
 
 **Conclusion:** This benchmark demonstrates a key trade-off. The `inv(A)` method has the **fastest *solve* step** due to its parallelizable nature. However, as noted in the "Linear Equations" (2025) slides, this speed comes at the cost of:
 1.  **Higher Setup Cost:** The $O(n^3)$ cost to compute `inv(A)` is approximately 3 times higher than the cost to compute `lu(A)`.
@@ -63,19 +63,21 @@ For a problem requiring thousands of solves (like this one), the `inv(A)` method
 
 ### Part 2: Iterative Solvers
 
-This part implements the Gauss-Jacobi and Gauss-Seidel iterative methods based on operator splitting. The functions `methods/gauss_jacobi.m` and `methods/gauss_seidel.m` are called by the `solvers/problem1_solver_p2.m` script.
+This part implements the Gauss-Jacobi and Gauss-Seidel iterative methods based on operator splitting. The functions `methods/gauss_jacobi.m` and `methods/gauss_seidel.m` are called by the `solvers/problem1_solver_p2.m` script, which now uses the exact matrices specified in the problem set.
 
 **Analysis of Results (`results/problem1/p1_part2_iterations.txt`)**
 
 | System Matrix | Property | Gauss-Jacobi Iterations | Gauss-Seidel Iterations |
 | :--- | :---: | :---: | :---: |
-| `A1_pdf` | **Strictly Diagonally Dominant** | 16 | 10 |
-| `A2_pdf` | Not Diagonally Dominant | 1001 (Failed) | 1001 (Failed) |
+| `A1` | **Strictly Diagonally Dominant** | 40 | 24 |
+| `A2` | **Strictly Diagonally Dominant** | 224 | 124 |
+| `A3` | Not Diagonally Dominant | 5000 (Failed) | 5000 (Failed) |
 
 **Conclusion:** The results perfectly illustrate the central convergence theorem for these methods.
-* For the system `A1_pdf`, strict diagonal dominance guarantees convergence, which both methods achieved rapidly.
-* Gauss-Seidel converged faster (10 iterations) because it uses the most recently updated values of $x^{(k+1)}$ within the same iteration, whereas Gauss-Jacobi uses only values from $x^{(k)}$.
-* For `A2_pdf`, the lack of diagonal dominance violated the sufficient condition for convergence, and both methods failed.
+* For systems `A1` and `A2`, **strict diagonal dominance** is satisfied, which guarantees convergence.
+* System `A3` is **not** strictly diagonally dominant (e.g., `Row 1: |2| > |1| + |1| + |0|` is false). This violates the sufficient condition, and as a result, both methods failed to converge, hitting the 5000-iteration limit.
+* This output directly answers the problem's question ("Why is it so different across cases?").
+* For the converging matrices (`A1`, `A2`), Gauss-Seidel converged significantly faster than Gauss-Jacobi. This is the expected theoretical outcome, as Gauss-Seidel uses the most recently updated values of $x^{(k+1)}$ within the same iteration, accelerating convergence.
 
 ---
 
