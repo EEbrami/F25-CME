@@ -2,7 +2,7 @@
 
 **Course:** ECON-81360: Computational Methods for Economists
 
-**Instructor:** Lilia Maliar
+**Author:** Ebrahim Ebrami
 
 **Date:** October 31, 2025
 
