@@ -1,16 +1,16 @@
 Case Description	CPU Time (s)	Mean Error (log10)	Max Error (log10)	Parameters (RM, penalty, norm)
-LAD-PP (Base) (FAILED)	2.275398	NaN	NaN	RM=3, penalty=0, norm=1
-LAD-DP (Base) (FAILED)	0.933043	NaN	NaN	RM=4, penalty=0, norm=1
-RLAD-PP (eta=10^-7) (FAILED)	2.257318	NaN	NaN	RM=7, penalty=-7, norm=1
-RLAD-DP (eta=10^-7) (FAILED)	0.999017	NaN	NaN	RM=8, penalty=-7, norm=1
-RLAD-PP (eta=10^-4) (FAILED)	2.211135	NaN	NaN	RM=7, penalty=-4, norm=1
-RLAD-DP (eta=10^-4) (FAILED)	0.920387	NaN	NaN	RM=8, penalty=-4, norm=1
-RLS-Tikhonov (eta=10^-7)	6.996378	-6.3475908487786	-5.0648740115935	RM=5, penalty=-7, norm=1
-RLS-Tikhonov (eta=10^-4)	8.618761	-4.71739492041722	-3.57806034422042	RM=5, penalty=-4, norm=1
-LS-SVD (Base)	5.470607	-9.90773844406458	-8.1930755574893	RM=2, penalty=0, norm=1
-RLS-TSVD (kappa=10^6)	5.034372	-8.25296336831085	-6.65102391185775	RM=6, penalty=6, norm=1
-RLS-TSVD (kappa=10^7)	4.733989	-8.91506543832445	-7.26000620317081	RM=6, penalty=7, norm=1
-RLS-TSVD (kappa=10^8)	4.767242	-9.90773844406458	-8.1930755574893	RM=6, penalty=8, norm=1
-LAD-DP (No Norm) (FAILED)	0.868967	NaN	NaN	RM=4, penalty=0, norm=0
-RLS-Tikhonov (No Norm)	6.206207	-6.3475908487786	-5.0648740115935	RM=5, penalty=-7, norm=0
-RLS-TSVD (No Norm)	4.717709	-8.91506543832445	-7.26000620317081	RM=6, penalty=7, norm=0
+LAD-PP (Base) (FAILED)	2.23413	NaN	NaN	RM=3, penalty=0, norm=1
+LAD-DP (Base) (FAILED)	0.995254	NaN	NaN	RM=4, penalty=0, norm=1
+RLAD-PP (eta=10^-7) (FAILED)	2.123113	NaN	NaN	RM=7, penalty=-7, norm=1
+RLAD-DP (eta=10^-7) (FAILED)	0.926611	NaN	NaN	RM=8, penalty=-7, norm=1
+RLAD-PP (eta=10^-4) (FAILED)	2.093725	NaN	NaN	RM=7, penalty=-4, norm=1
+RLAD-DP (eta=10^-4) (FAILED)	0.921396	NaN	NaN	RM=8, penalty=-4, norm=1
+RLS-Tikhonov (eta=10^-7)	6.384854	-6.3475908487786	-5.0648740115935	RM=5, penalty=-7, norm=1
+RLS-Tikhonov (eta=10^-4)	8.530922	-4.71739492041722	-3.57806034422042	RM=5, penalty=-4, norm=1
+LS-SVD (Base)	4.714738	-9.90773844406458	-8.1930755574893	RM=2, penalty=0, norm=1
+RLS-TSVD (kappa=10^6)	4.689445	-8.25296336831085	-6.65102391185775	RM=6, penalty=6, norm=1
+RLS-TSVD (kappa=10^7)	4.65419	-8.91506543832445	-7.26000620317081	RM=6, penalty=7, norm=1
+RLS-TSVD (kappa=10^8)	4.740743	-9.90773844406458	-8.1930755574893	RM=6, penalty=8, norm=1
+LAD-DP (No Norm) (FAILED)	0.944498	NaN	NaN	RM=4, penalty=0, norm=0
+RLS-Tikhonov (No Norm)	6.561866	-6.3475908487786	-5.0648740115935	RM=5, penalty=-7, norm=0
+RLS-TSVD (No Norm)	4.563157	-8.91506543832445	-7.26000620317081	RM=6, penalty=7, norm=0

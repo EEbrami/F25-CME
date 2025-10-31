@@ -110,6 +110,6 @@ if ~exist('results/problem2', 'dir')
    mkdir('results/problem2');
 end
 writetable(results_table, 'results/problem2/p2_stabilization_results.txt', 'Delimiter', '\t');
-writetable(results_table, 'results/problem2/p2_stabilization_results.xlsx');
+writetable(results_table, 'results/problem2/p2_stabilization_results.csv');
 
 disp('Results saved to homeworks/hw3/results/problem2/');
